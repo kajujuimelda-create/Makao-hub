@@ -1,0 +1,317 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Property | Makao Hub</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: white;
+            padding: 18px 7%;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f766e;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .intro h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            color: #6b7280;
+        }
+
+        .form-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #0f766e;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #0f766e;
+            color: white;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #115e59;
+        }
+
+        .note {
+            background: #ecfdf5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            color: #065f46;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">Makao Hub</a>
+</header>
+
+<div class="container">
+
+    <div class="intro">
+        <h1>Post Your Property</h1>
+        <p>Reach tenants looking for a home in Kenya.</p>
+    </div>
+
+    <div class="form-card">
+
+        <div class="note">
+            📢 Complete the form below with accurate property information.
+            The listing system will later connect this form to landlord
+            accounts and payments.
+        </div>
+
+        <form id="propertyForm">
+
+            <div class="form-group">
+                <label for="title">Property Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="e.g. Modern 2 Bedroom Apartment"
+                    required
+                >
+            </div>
+
+            <div class="row">
+
+                <div class="form-group">
+                    <label for="type">Property Type</label>
+
+                    <select id="type" required>
+                        <option value="">Select type</option>
+                        <option>Bedsitter</option>
+                        <option>1 Bedroom</option>
+                        <option>2 Bedroom</option>
+                        <option>3 Bedroom</option>
+                        <option>House</option>
+                        <option>Single Room</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Monthly Rent (KSh)</label>
+
+                    <input
+                        type="number"
+                        id="price"
+                        placeholder="e.g. 15000"
+                        min="0"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group">
+                    <label for="county">County</label>
+
+                    <input
+                        type="text"
+                        id="county"
+                        placeholder="e.g. Nyeri"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="town">Town / Area</label>
+
+                    <input
+                        type="text"
+                        id="town"
+                        placeholder="e.g. Nyeri Town"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="description">
+                    Property Description
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Describe the property, amenities, security, water availability, parking, etc."
+                    required
+                ></textarea>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="contact">
+                    Landlord Contact Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="contact"
+                    placeholder="e.g. 07XXXXXXXX"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="photos">
+                    Property Photos
+                </label>
+
+                <input
+                    type="file"
+                    id="photos"
+                    accept="image/*"
+                    multiple
+                >
+
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Property
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+document
+    .getElementById("propertyForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const title =
+            document.getElementById("title").value;
+
+        const town =
+            document.getElementById("town").value;
+
+        const price =
+            document.getElementById("price").value;
+
+        alert(
+            "Property submitted successfully!\n\n" +
+            title +
+            "\n" +
+            town +
+            "\n" +
+            "KSh " +
+            Number(price).toLocaleString() +
+            " per month"
+        );
+
+    });
+
+</script>
+
+</body>
+</html>
+```
