@@ -434,49 +434,64 @@
     <p>Find your next home across Kenya.</p>
     <p>© 2026 Makao Hub. All rights reserved.</p>
 </footer>
-
-
 <script>
 
 function searchProperties() {
 
-    const location =
-        document.getElementById("location").value.trim();
+    const locationInput =
+        document.getElementById("location").value.trim().toLowerCase();
 
-    const type =
-        document.getElementById("houseType").value;
+    const typeInput =
+        document.getElementById("houseType").value.toLowerCase();
 
-    if (!location && !type) {
-        alert("Please enter a location or choose a property type.");
-        return;
-    }
+    const properties =
+        document.querySelectorAll(".property");
 
-    let message = "Searching";
+    let found = 0;
 
-    if (location) {
-        message += " in " + location;
-    }
+    properties.forEach(property => {
 
-    if (type) {
-        message += " for " + type;
-    }
+        const propertyText =
+            property.innerText.toLowerCase();
 
-    alert(message + "...");
+        const locationMatch =
+            !locationInput ||
+            propertyText.includes(locationInput);
+
+        const typeMatch =
+            !typeInput ||
+            propertyText.includes(typeInput);
+
+        if (locationMatch && typeMatch) {
+            property.style.display = "block";
+            found++;
+        } else {
+            property.style.display = "none";
+        }
+
+    });
 
     document
         .getElementById("listings")
         .scrollIntoView({ behavior: "smooth" });
+
+    if (found === 0) {
+        alert("No properties found. Try another location or property type.");
+    }
 }
 
 
 function postProperty() {
+
     alert(
-        "Property listing will be available when the landlord system is connected."
+        "The landlord property-listing system is coming next!"
     );
+
 }
 
 </script>
 
-</body>
-</html>
-```
+
+   
+
+
