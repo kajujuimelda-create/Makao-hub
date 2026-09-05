@@ -1,0 +1,482 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Makao Hub | Find Your Next Home in Kenya</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fa;
+            color: #1f2937;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f766e;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 600;
+        }
+
+        .login {
+            border: 1px solid #0f766e;
+            color: #0f766e;
+            padding: 10px 18px;
+            border-radius: 8px;
+        }
+
+        .hero {
+            min-height: 500px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(15, 118, 110, .88), rgba(15, 118, 110, .88)),
+                url("https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1800&q=80")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            display: flex;
+            gap: 10px;
+            max-width: 850px;
+        }
+
+        .search-box input,
+        .search-box select {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 16px;
+            font-size: 16px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        .search-btn {
+            border: none;
+            background: #111827;
+            color: white;
+            padding: 0 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 70px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .feature-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .listings {
+            background: #ffffff;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .property {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .property-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .property-info {
+            padding: 20px;
+        }
+
+        .property-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .location {
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #0f766e;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .cta {
+            text-align: center;
+            background: #ecfdf5;
+        }
+
+        .cta h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #4b5563;
+            margin-bottom: 25px;
+        }
+
+        .cta button {
+            border: none;
+            background: #0f766e;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            padding: 40px 7%;
+            text-align: center;
+        }
+
+        footer p {
+            color: #9ca3af;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                display: none;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-btn {
+                padding: 15px;
+            }
+
+            .features,
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 60px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Makao Hub</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#listings">Houses</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#">Post a House</a>
+        <a href="#" class="login">Login</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+
+            <h1>Find a place you can call home.</h1>
+
+            <p>
+                Makao Hub connects tenants with houses, apartments,
+                rooms and landlords across Kenya.
+            </p>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Where do you want to live?"
+                >
+
+                <select id="houseType">
+                    <option value="">Property type</option>
+                    <option value="Bedsitter">Bedsitter</option>
+                    <option value="1 Bedroom">1 Bedroom</option>
+                    <option value="2 Bedroom">2 Bedroom</option>
+                    <option value="3 Bedroom">3 Bedroom</option>
+                    <option value="House">House</option>
+                </select>
+
+                <button class="search-btn" onclick="searchProperties()">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="how-it-works">
+
+        <div class="section-title">
+            <h2>Why Makao Hub?</h2>
+            <p>A simpler way to find and advertise homes.</p>
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">🏠</div>
+                <h3>Find Your Home</h3>
+                <p>
+                    Search houses based on location, property type
+                    and your preferred budget.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📍</div>
+                <h3>Discover Locations</h3>
+                <p>
+                    Find available properties in towns and
+                    neighbourhoods across Kenya.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📢</div>
+                <h3>List Your Property</h3>
+                <p>
+                    Landlords can advertise vacant houses and
+                    reach people actively looking for homes.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="listings" id="listings">
+
+        <div class="section-title">
+            <h2>Featured Homes</h2>
+            <p>Some of the homes that will appear on Makao Hub.</p>
+        </div>
+
+        <div class="property-grid">
+
+            <div class="property">
+                <div class="property-image"
+                     style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80');">
+                </div>
+
+                <div class="property-info">
+                    <h3>Modern Bedsitter</h3>
+                    <div class="location">📍 Nyeri Town</div>
+                    <div class="price">KSh 8,000 / month</div>
+                </div>
+            </div>
+
+
+            <div class="property">
+                <div class="property-image"
+                     style="background-image:url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80');">
+                </div>
+
+                <div class="property-info">
+                    <h3>1 Bedroom Apartment</h3>
+                    <div class="location">📍 Nairobi</div>
+                    <div class="price">KSh 18,000 / month</div>
+                </div>
+            </div>
+
+
+            <div class="property">
+                <div class="property-image"
+                     style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80');">
+                </div>
+
+                <div class="property-info">
+                    <h3>Family House</h3>
+                    <div class="location">📍 Nakuru</div>
+                    <div class="price">KSh 35,000 / month</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="cta">
+
+        <h2>Have a vacant property?</h2>
+
+        <p>
+            Put your property in front of people searching for a home.
+        </p>
+
+        <button onclick="postProperty()">
+            Post Your Property
+        </button>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <strong>Makao Hub</strong>
+    <p>Find your next home across Kenya.</p>
+    <p>© 2026 Makao Hub. All rights reserved.</p>
+</footer>
+
+
+<script>
+
+function searchProperties() {
+
+    const location =
+        document.getElementById("location").value.trim();
+
+    const type =
+        document.getElementById("houseType").value;
+
+    if (!location && !type) {
+        alert("Please enter a location or choose a property type.");
+        return;
+    }
+
+    let message = "Searching";
+
+    if (location) {
+        message += " in " + location;
+    }
+
+    if (type) {
+        message += " for " + type;
+    }
+
+    alert(message + "...");
+
+    document
+        .getElementById("listings")
+        .scrollIntoView({ behavior: "smooth" });
+}
+
+
+function postProperty() {
+    alert(
+        "Property listing will be available when the landlord system is connected."
+    );
+}
+
+</script>
+
+</body>
+</html>
+```
